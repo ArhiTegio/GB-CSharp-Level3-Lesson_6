@@ -1,0 +1,23 @@
+﻿<Window x:Class="FunctionalFiles.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FunctionalFiles.ViewModel"
+        mc:Ignorable="d"
+        Title="Файловые команды" Height="450" Width="800">
+
+    <Window.Resources>
+        <local:Functional x:Key="ViewModel"/>
+    </Window.Resources>
+    <Grid>
+        <StackPanel DataContext="{StaticResource ViewModel}">
+            <Button Margin="5" Command="{Binding DirCommand, UpdateSourceTrigger=PropertyChanged}" Content="Выбрать директорию"/>
+            <TextBlock Margin="5" Text="{Binding Dir}"/>
+            <Button Margin="5" Command="{Binding NewFilesCommand, UpdateSourceTrigger=PropertyChanged}" Content="Обновить директорию"/>
+            <Button Margin="5" Command="{Binding CalcCommand, UpdateSourceTrigger=PropertyChanged}" Content="Выполнить расчет"/>
+        </StackPanel>            
+        
+        
+    </Grid>
+</Window>
